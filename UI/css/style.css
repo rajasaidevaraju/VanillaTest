@@ -1,0 +1,31 @@
+@import url(buttonStyle.css);
+@import url(videoView.css);
+html,
+body {
+  height: 100%;
+  font-family: Sans-serif;
+}
+body {
+  margin: 0;
+}
+.noSelect {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.noSelect:focus {
+  outline: none !important;
+}
+.main {
+  height: 100%;
+  padding: 0;
+  margin: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}

@@ -1,0 +1,30 @@
+.content {
+  place-content: center;
+  gap: 2px;
+  margin: 5;
+}
+@media only screen and (max-width: 600px) {
+  .video {
+    width: 100%;
+  }
+}
+.flex {
+  display: flex;
+}
+
+.videoSection {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  border: none;
+  gap: 10px;
+  align-items: center;
+}
+
+.screenshotButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  margin: 10;
+}

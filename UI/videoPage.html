@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="./css/style.css">
+        <script type="text/javascript" src="./js/const.js"></script>
+        <script type="text/javascript" src="./js/videoView.js"></script>
+    </head>
+    <body onload="loadVideoAndData()">
+        <div class="main content">
+            <p id="title">An interesting title</p>
+            <video id="video" class="video" width="320" height="240" controls>
+                Your browser does not support the video tag.
+            </video>
+            <div class="flex">
+                <div class="flex"><p>Size-></p><p id="size">NA</p></div>
+                <div class="flex"><p>&nbsp;Duration-></p><p id="duration">NA</p></div>
+            </div>
+            <button class="basicButton screenshotButton noSelect" onclick="captureScreenShot()">Take Screenshot</button>
+            <img id="testIMG">
+        </div>
+        
+    </body>
+</html>
