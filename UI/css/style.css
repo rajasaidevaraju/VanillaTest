@@ -28,4 +28,41 @@ body {
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  overflow: auto;
+}
+
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  animation-duration: 0.5s;
+}
+
+.root--moveLeft {
+  animation-name: moveLeft;
+}
+
+.root--moveRight {
+  animation-name: moveRight;
+}
+
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }

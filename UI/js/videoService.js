@@ -20,13 +20,13 @@ function createVideoUi(data) {
   uiElement.classList.add("videoSection");
   uiElement.onclick = () => openNewTab(data.id);
   let image = document.createElement("img");
-  image.src = "./image/notAvail.jpg";
+  image.src = config.serverPath + config.getThumbnail + data.id;
   image.width = config.imageWidth;
   image.height = config.imageHeight;
   image.alt = "sample image";
   let text = document.createElement("p");
-  text.textContent = data.id;
-  text.style = "word-wrap: break-word ;font-weight:bold";
+  text.textContent = data.id.substring(0, 25);
+  text.style = "word-wrap: anywhere ;font-weight:bold";
 
   uiElement.appendChild(image);
   uiElement.appendChild(text);

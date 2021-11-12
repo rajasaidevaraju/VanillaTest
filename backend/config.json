@@ -1,7 +1,8 @@
 {
-    "videoFolderPath":"F:/random videos/",
-    "thumbnailFolderPath":"F:/random videos/thumbnails/",
-    "videoFolderPath1":"F:/homework/",
-    "status_ok":"ok",
-    "status_error":"error"
+  "videoFolderPath1": "/media/raja/CC2AAAA12AAA87D2/random videos/",
+  "thumbnailFolderPath": "/media/raja/CC2AAAA12AAA87D2/random videos/thumbnails/",
+  "defaultThumbnail": "notAvail.jpeg",
+  "videoFolderPath": "/media/raja/CC2AAAA12AAA87D2/homework/",
+  "status_ok": "ok",
+  "status_error": "error"
 }

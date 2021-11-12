@@ -1,23 +1,36 @@
-
 <html>
-    <head>
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <script type="text/javascript" src="./js/const.js"></script>
-        <script type="text/javascript" src="./js/render.js"></script>
-        <script type="text/javascript" src="./js/buttonFunctionality.js"></script>
-        <script type="text/javascript" src="./js/videoView.js"></script>
-        <script type="text/javascript" src="./js/videoService.js"></script>
-        <link rel="stylesheet" href="./css/style.css">
-    </head>
-    <body onload="requestVideoList()"
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script type="text/javascript" src="./js/const.js"></script>
+    <script type="text/javascript" src="./js/render.js"></script>
+    <script type="text/javascript" src="./js/buttonFunctionality.js"></script>
+    <script type="text/javascript" src="./js/videoView.js"></script>
+    <script type="text/javascript" src="./js/swipe.js"></script>
+    <script type="text/javascript" src="./js/videoService.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body
+    onload="requestVideoList()"
     unselectable="on"
-    onselectstart="return false;" 
-    onmousedown="return false;">
-        <div class="main">
-            <button id="previous" class="basicButton noSelect" onclick="movePages(-1)">previous</button>
-            <div id="root"></div>
-            <button id="next" class="basicButton noSelect" onclick="movePages(1)">next</button>
-        </div>
-        
-    </body>
+    onselectstart="return false;"
+    onmousedown="return false;"
+  >
+    <div class="main" id="main">
+      <button
+        id="previous"
+        class="basicButton movementButton noSelect"
+        onclick="movePages(-1)"
+      >
+        previous
+      </button>
+      <div id="root" class="root"></div>
+      <button
+        id="next"
+        class="basicButton movementButton noSelect"
+        onclick="movePages(1)"
+      >
+        next
+      </button>
+    </div>
+  </body>
 </html>

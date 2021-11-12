@@ -32,4 +32,7 @@
   .basicButton {
     font-size: 18px;
   }
+  .movementButton {
+    display: none;
+  }
 }

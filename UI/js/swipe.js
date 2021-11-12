@@ -25,11 +25,11 @@ function handleTouchMove(evt) {
   //console.log("xDown " + xDown);
   //console.log("xUp " + xUp);
   if (xDiff > 8) {
-    console.log("right swipe");
+    //console.log("right swipe");
     movePages(1);
     /* right swipe */
   } else if (xDiff < -8) {
-    console.log("left swipe");
+    //console.log("left swipe");
     movePages(-1);
     /* left swipe */
   }

@@ -7,5 +7,5 @@ function movePages(margin) {
     return;
   }
   currentPage = currentPage + margin;
-  render();
+  render(margin);
 }

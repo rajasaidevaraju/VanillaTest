@@ -20,4 +20,23 @@ function setThumbnail(request, response) {
   }
 }
 
-module.exports = { setThumbnail };
+function getThumbnail(request, response) {
+  let id = request.query.id;
+  if (id == null) {
+    response.code(400).send({ message: "video id is not provided" });
+  } else {
+    thumbnailService
+      .getThumbnail(id)
+      .then((result) => {
+        response.type("image/jpeg").send(result);
+      })
+      .catch((error) => {
+        console.log(error);
+        response
+          .code(500)
+          .send({ message: "oops! some issue occured in server" });
+      });
+  }
+}
+
+module.exports = { setThumbnail, getThumbnail };
