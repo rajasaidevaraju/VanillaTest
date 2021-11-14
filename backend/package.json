@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "fastify": "^3.22.1",
-    "fastify-static": "^4.4.2"
+    "fastify-static": "^4.4.2",
+    "get-video-duration": "^4.0.0",
+    "mysql": "^2.18.1"
   }
 }

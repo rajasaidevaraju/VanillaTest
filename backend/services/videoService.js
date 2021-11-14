@@ -1,40 +1,9 @@
 const config = require("./../config.json");
 const fs = require("fs");
 const Path = require("path");
-function getAllVideos() {
-  return new Promise((resolve, reject) => {
-    fs.promises
-      .readdir(config.videoFolderPath)
-      .then((fileNames) => {
-        var fileNamesList = [];
-        fileNamesList = fileNames
-          .map(function (fileName) {
-            return {
-              title: fileName,
-              time: fs
-                .statSync(config.videoFolderPath + "/" + fileName)
-                .mtime.getTime(),
-              id: fileName,
-            };
-          })
-          .sort(function (a, b) {
-            return b.time - a.time;
-          })
-          .filter(function (e) {
-            return (
-              e.title.indexOf(".mp4") !== -1 || e.title.indexOf(".mkv") !== -1
-            );
-          });
-        resolve({ fileNamesList: fileNamesList });
-      })
-      .catch((error) => {
-        reject({ error: error });
-      });
-  });
-}
+const dbUtil = require("./../utility/DBUtility");
 
-function getVideo(id, request) {
-  let filePath = Path.join(config.videoFolderPath, id);
+function getVideo(filePath, request) {
   return new Promise((resolve, reject) => {
     fs.promises
       .access(filePath)
@@ -64,9 +33,12 @@ function getVideo(id, request) {
         }
       })
       .catch(() => {
-        reject({ message: "video with the id does not exist", not: true });
+        reject({
+          message: "video with the id does not exist in file system",
+          not: true,
+        });
       });
   });
 }
 
-module.exports = { getAllVideos, getVideo };
+module.exports = { getVideo };

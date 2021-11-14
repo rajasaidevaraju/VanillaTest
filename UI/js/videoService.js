@@ -25,7 +25,7 @@ function createVideoUi(data) {
   image.height = config.imageHeight;
   image.alt = "sample image";
   let text = document.createElement("p");
-  text.textContent = data.id.substring(0, 25);
+  text.textContent = data.title.substring(0, 25);
   text.style = "word-wrap: anywhere ;font-weight:bold";
 
   uiElement.appendChild(image);

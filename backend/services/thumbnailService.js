@@ -2,7 +2,6 @@ const config = require("./../config.json");
 const fs = require("fs");
 const Path = require("path");
 function setThumbnail(id, imageData) {
-  id = id.replace(".mp4", ".jpeg");
   let filePath = Path.join(config.thumbnailFolderPath, id);
   return new Promise((resolve, reject) => {
     fs.promises
@@ -20,7 +19,6 @@ function setThumbnail(id, imageData) {
 }
 
 function getThumbnail(id) {
-  id = id.replace(".mp4", ".jpeg");
   let filePath = Path.join(config.thumbnailFolderPath, id);
   let defaultThumbnailPath = Path.join(
     config.thumbnailFolderPath,

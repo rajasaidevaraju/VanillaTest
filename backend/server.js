@@ -4,6 +4,7 @@ const path = require("path");
 const startProcess = require("./services/start");
 const mainRoutes = require("./routes/mainRouter");
 const specialFunctionsRoutes = require("./routes/specialFunctionsRoutes");
+const dbUtils = require("./utility/DBUtility");
 const port = 2100;
 
 fastify.register(require("fastify-static"), {
@@ -26,9 +27,11 @@ specialFunctionsRoutes.forEach((route) => {
 // Run the server!
 const start = async (port) => {
   try {
+    await dbUtils.ConnectWithDatabase();
     await fastify.listen(port, "0.0.0.0");
   } catch (err) {
     fastify.log.error(err);
+    await dbUtils.closeDBConnection();
     process.exit(1);
   }
 };

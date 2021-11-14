@@ -3,6 +3,13 @@
   "thumbnailFolderPath": "/media/raja/CC2AAAA12AAA87D2/random videos/thumbnails/",
   "defaultThumbnail": "notAvail.jpeg",
   "videoFolderPath": "/media/raja/CC2AAAA12AAA87D2/homework/",
+  "windowsRootPath": "F:\\",
+  "linuxRootPath": "/media/raja/CC2AAAA12AAA87D2/",
+  "db": {
+    "user_name": "test126",
+    "password": "pass",
+    "database": "videosdb"
+  },
   "status_ok": "ok",
   "status_error": "error"
 }

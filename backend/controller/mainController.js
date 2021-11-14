@@ -1,12 +1,13 @@
 const videoService = require("./../services/videoService");
 const fileService = require("./../services/fileService");
+const dbUtils = require("./../utility/DBUtility");
 const config = require("./../config.json");
 const fs = require("fs");
 function getAllVideos(request, response) {
-  videoService
+  dbUtils
     .getAllVideos()
     .then((result) => {
-      response.send(result.fileNamesList);
+      response.send(result);
     })
     .catch((error) => {
       console.log(error);
@@ -17,24 +18,25 @@ function getAllVideos(request, response) {
 }
 
 function getVideo(request, response) {
-  //currently, id is video title or name
   let id = request.query.id;
   if (id == null) {
     response.code(400).send({ message: "video id is not provided" });
   } else {
-    videoService
-      .getVideo(id, request)
-      .then((result) => {
-        if (result.status == 200) {
-          response.raw.writeHead(200, result.head);
-          fs.createReadStream(result.filePath).pipe(response.raw);
-        } else if (result.status == 206) {
-          response.raw.writeHead(206, result.head);
-          fs.createReadStream(result.filePath, {
-            start: result.start,
-            end: result.end,
-          }).pipe(response.raw);
-        }
+    dbUtils
+      .getAbsolutePathForID(id)
+      .then((filePath) => {
+        videoService.getVideo(filePath, request).then((result) => {
+          if (result.status == 200) {
+            response.raw.writeHead(200, result.head);
+            fs.createReadStream(result.filePath).pipe(response.raw);
+          } else if (result.status == 206) {
+            response.raw.writeHead(206, result.head);
+            fs.createReadStream(result.filePath, {
+              start: result.start,
+              end: result.end,
+            }).pipe(response.raw);
+          }
+        });
       })
       .catch((error) => {
         if (error.not) {
