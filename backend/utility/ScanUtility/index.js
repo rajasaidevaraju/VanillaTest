@@ -8,7 +8,11 @@ async function ScanAndPushToDB() {
   try {
     await dbUtil.ConnectWithDatabase();
     scanData.forEach(async (videoStat) => {
-      promises.push(dbUtil.insertNewVideo(videoStat));
+      try {
+        promises.push(dbUtil.insertNewVideo(videoStat));
+      } catch (error) {
+        console.log(error);
+      }
     });
   } catch (error) {
     console.log(error);

@@ -9,6 +9,12 @@ async function scanFolders() {
 }
 
 async function getFilesAndStats(sourceFolder) {
+  if (
+    sourceFolder.includes("$RECYCLE.BIN") ||
+    sourceFolder.includes("System Volume Information")
+  ) {
+    return [];
+  }
   const entries = await fs.readdir(sourceFolder, { withFileTypes: true });
   const files = await Promise.all(
     entries
@@ -32,7 +38,6 @@ async function getFilesAndStats(sourceFolder) {
         //keep only first 2 digits in seconds
         seconds = (seconds + "").substr(0, 2);
         obj.duration = minutes + ":" + seconds;
-
         return obj;
       })
   );

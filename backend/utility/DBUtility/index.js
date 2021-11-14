@@ -20,6 +20,7 @@ function ConnectWithDatabase() {
 }
 
 function insertNewVideo(data) {
+  data.absolutePath = data.absolutePath.replaceAll("\\", "/");
   return new Promise((resolve, reject) => {
     let query = `INSERT INTO videos
     (id,absolutePath, title,duration, size,createdDate) VALUES
@@ -39,12 +40,18 @@ function insertNewVideo(data) {
     } else {
       reject({ message: "no db connection" });
     }
+  }).catch((err) => {
+    console.log(err);
   });
 }
 
 function closeDBConnection() {
   if (connection) {
-    connection.end();
+    try {
+      connection.end();
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
